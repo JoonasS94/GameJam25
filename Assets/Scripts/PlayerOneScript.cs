@@ -1,11 +1,14 @@
 using UnityEngine;
+using TMPro;
 
 public class PlayerOneScript : MonoBehaviour
 {
-    public float jumpForce = 8f; // Hyppyvoima, muokattavissa editorissa
+    public float jumpForce = 6f; // Hyppyvoima, muokattavissa editorissa
     private Rigidbody rb; // Viittaus Rigidbody-komponenttiin
     public float horizontalInput;
-    private float playerSpeed = 10.0f;
+    private float playerSpeed = 6.0f;
+    public int playerOneMoney;
+    public TextMeshProUGUI playerOneMoneyText;
 
     void Start()
     {
@@ -70,6 +73,8 @@ public class PlayerOneScript : MonoBehaviour
             Destroy(collision.gameObject);
 
             Debug.Log("rahaa pelaajalle");
+            playerOneMoney += 1;
+            playerOneMoneyText.text = "P1 Money: " + playerOneMoney;
         }
     }
 
