@@ -14,15 +14,5 @@ public class MoneyController : MonoBehaviour
         
     }
 
-    /*void OnCollisionEnter(Collision collision)
-    {
-        // Tarkistetaan, onko törmäävä objekti merkitty 'PlatformTag'-tagilla
-        if (collision.gameObject.CompareTag("PlayerOneTag"))
-        {
-            // Tuhoaa raha objektin
-            Destroy(gameObject);
 
-            Debug.Log("rahaa pelaajalle");
-        }
-    }*/
 }
