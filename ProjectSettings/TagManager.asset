@@ -8,6 +8,8 @@ TagManager:
   - PlatformTag
   - PlayerOneShotBubbleTag
   - PlayerOneShotDartTag
+  - AirBubbleTag
+  - WallTag
   layers:
   - Default
   - TransparentFX

@@ -65,6 +65,7 @@ public class AirBubbleController : MonoBehaviour
         if (other.CompareTag("PlayerOneShotBubbleTag"))
         {
             Debug.Log("Pelaajan ampuma kupla osui ilmassa leijuvaan kuplaan");
+            Destroy(other.gameObject);
         }
 
         // Tarkistetaan, osuuko pelaajan ampuma kupla (vertaa tagiin)

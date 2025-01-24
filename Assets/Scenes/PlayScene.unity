@@ -537,7 +537,7 @@ GameObject:
   - component: {fileID: 1303840032}
   m_Layer: 0
   m_Name: Wall_Left (1)
-  m_TagString: Untagged
+  m_TagString: WallTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -801,7 +801,7 @@ GameObject:
   - component: {fileID: 1722753684}
   m_Layer: 0
   m_Name: Wall_Right
-  m_TagString: Untagged
+  m_TagString: WallTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -938,7 +938,7 @@ GameObject:
   - component: {fileID: 1813801626}
   m_Layer: 0
   m_Name: AirBubble
-  m_TagString: Untagged
+  m_TagString: AirBubbleTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1229,7 +1229,7 @@ GameObject:
   - component: {fileID: 2107838888}
   m_Layer: 0
   m_Name: Wall_Left
-  m_TagString: Untagged
+  m_TagString: WallTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
