@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerOneScript : MonoBehaviour
 {
-    public float jumpForce = 5f; // Hyppyvoima, muokattavissa editorissa
+    public float jumpForce = 8f; // Hyppyvoima, muokattavissa editorissa
     private Rigidbody rb; // Viittaus Rigidbody-komponenttiin
     public float horizontalInput;
     private float playerSpeed = 10.0f;

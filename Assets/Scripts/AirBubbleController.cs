@@ -15,6 +15,8 @@ public class AirBubbleController : MonoBehaviour
     private float targetX;
     private float targetY;
     private bool isMoving = false; // Varmistaa, että liike tapahtuu vain, kun kupla ei ole jo liikkeessä
+    private bool destroyable = true;
+    public GameObject MoneyPrefab;
 
     void Start()
     {
@@ -68,10 +70,36 @@ public class AirBubbleController : MonoBehaviour
             Destroy(other.gameObject);
         }
 
-        // Tarkistetaan, osuuko pelaajan ampuma kupla (vertaa tagiin)
+        // Tarkistetaan, osuuko pelaajan ampuma tikka (vertaa tagiin)
         if (other.CompareTag("PlayerOneShotDartTag"))
         {
             Debug.Log("Pelaajan ampuma tikka osui ilmassa leijuvaan kuplaan");
+            Destroy(other.gameObject);
+
+            // Mikäli ilmakupla on tuhottavissa ja siihen osuu tikka, ilmakupla tuhoutuu ja sen tilalle syntyy rahaa,
+            // joka tippuu maahan.
+            if (destroyable == true)
+            {
+                SpawnMoney();
+                Destroy(gameObject);
+            }
         }
+    }
+
+    // Luodaan rahaa, joka lentää ylös ja sivulle ennen kuin putoaa alas
+    private void SpawnMoney()
+    {
+        // Luodaan rahapeliobjekti ilmakuplan sijaintiin
+        GameObject money = Instantiate(MoneyPrefab, transform.position, Quaternion.identity);
+        Rigidbody rb = money.GetComponent<Rigidbody>();
+
+        // Satunnainen voima ylöspäin ja sivuille
+        Vector3 randomForce = new Vector3(
+            Random.Range(-2f, 2f), // Satunnainen voima sivulle
+            Random.Range(2f, 4f),  // Satunnainen voima ylöspäin
+            0f); // Ei liikuta rahaa eteenpäin tai taaksepäin
+
+        // Annetaan rahalle satunnainen voima
+        rb.AddForce(randomForce, ForceMode.Impulse);
     }
 }
