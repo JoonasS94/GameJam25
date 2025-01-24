@@ -6,6 +6,8 @@ TagManager:
   tags:
   - PlayerOneWeaponTag
   - PlatformTag
+  - PlayerOneShotBubbleTag
+  - PlayerOneShotDartTag
   layers:
   - Default
   - TransparentFX

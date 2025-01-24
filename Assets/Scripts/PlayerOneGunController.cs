@@ -6,6 +6,7 @@ public class PlayerOneGunController : MonoBehaviour
     public Transform weapon; // Ase, jota liikutetaan
     public bool PlayerOneFiringCooldown = false;
     public GameObject PlayerOneShotBubblePrefab;
+    public GameObject PlayerOneShotDartPrefab;
     public Transform PlayerOneWeaponMuzzle;
     private float ShotPower = 5f;
 
@@ -44,6 +45,16 @@ public class PlayerOneGunController : MonoBehaviour
             Debug.Log("RT painettu, arvo: " + rightTrigger);
             FirePlayerOneWeaponBubble();
         }
+
+        // Lue LT (L2)-arvo
+        float leftTrigger = Input.GetAxis("LeftTrigger");
+
+        // Tarkista, painetaanko RT:tä
+        if (leftTrigger > 0.1f)
+        {
+            Debug.Log("LT painettu, arvo: " + leftTrigger);
+            FirePlayerOneWeaponDart();
+        }
     }
 
     void FirePlayerOneWeaponBubble()
@@ -61,6 +72,24 @@ public class PlayerOneGunController : MonoBehaviour
 
             // Kuplaan energia jolla lähtee liikkeelle aseen piipusta eteenpain
             PlayerOneBubbleRigidbody.AddForce(PlayerOneWeaponMuzzle.up * ShotPower, ForceMode.Impulse);
+        }
+    }
+
+    void FirePlayerOneWeaponDart()
+    {
+        if (PlayerOneFiringCooldown == false)
+        {
+            PlayerOneFiringCooldown = true;
+            StartCoroutine(PlayerOneFiringCooldownTimer());
+
+            // Instansioi tikka aseen piipusta ja huomioi aseen rotaatio
+            GameObject createdPlayerOneDart = Instantiate(PlayerOneShotDartPrefab, PlayerOneWeaponMuzzle.position, PlayerOneWeaponMuzzle.rotation);
+
+            // Tikka Rb
+            Rigidbody PlayerOneDartRigidbody = createdPlayerOneDart.GetComponent<Rigidbody>();
+
+            // Kuplaan energia jolla lähtee liikkeelle aseen piipusta eteenpain
+            PlayerOneDartRigidbody.AddForce(PlayerOneWeaponMuzzle.up * ShotPower, ForceMode.Impulse);
         }
     }
 
