@@ -1,0 +1,34 @@
+{
+    "name": "GameControls",
+    "maps": [
+        {
+            "name": "Jump",
+            "id": "c536c775-8afb-4825-990c-aeceab03941f",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "0246b2fc-7e1a-43db-af8e-3db60224bc4b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "10d2d584-2dec-4d02-b710-bb759bffa8e5",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
