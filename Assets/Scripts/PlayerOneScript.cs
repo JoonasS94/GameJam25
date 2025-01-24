@@ -1,22 +1,41 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerOneScript : MonoBehaviour
 {
-    public InputActionReference jumpAction;
+    public float jumpForce = 5f; // Hyppyvoima, muokattavissa editorissa
+    private Rigidbody rb; // Viittaus Rigidbody-komponenttiin
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        // Hae Rigidbody-komponentti
+        rb = GetComponent<Rigidbody>();
+
+        // Varmista, että Rigidbody löytyy
+        if (rb == null)
+        {
+            Debug.LogError("Rigidbody-komponenttia ei löydy! Lisää se GameObjectiin.");
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.JoystickButton0))
+        // Tarkista, painetaanko A-nappia (JoystickButton0 Xbox-ohjaimessa)
+        if (Input.GetKeyDown(KeyCode.JoystickButton0) && IsGrounded())
         {
-            Debug.Log("A-nappia painettu!");
+            Jump();
         }
+    }
+
+    private void Jump()
+    {
+        // Lisää ylöspäin suuntautuva voima Rigidbodyyn
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        Debug.Log("Hyppy kun painetaan Xbox-one ohjaimen A-nappia");
+    }
+
+    private bool IsGrounded()
+    {
+        // Tarkista, koskeeko kuutio maata
+        return Physics.Raycast(transform.position, Vector3.down, 1.1f);
     }
 }
