@@ -45,7 +45,20 @@ public class PlayerOneScript : MonoBehaviour
 
     private bool IsGrounded()
     {
-        // Tarkista, koskeeko kuutio maata
-        return Physics.Raycast(transform.position, Vector3.down, 1.1f);
+        // Suorita RaycastAll ja hae kaikki osumat
+        RaycastHit[] hits = Physics.RaycastAll(transform.position, Vector3.down, 1.1f);
+
+        foreach (var hit in hits)
+        {
+            // Tarkista, osuuko maa-objektiin (tarkista Tag "PlatformTag")
+            if (hit.collider.CompareTag("PlatformTag"))
+            {
+                return true;
+            }
+        }
+
+        // Jos ei osunut maahan, palautetaan false
+        return false;
     }
+
 }
