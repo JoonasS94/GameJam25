@@ -10,6 +10,8 @@ TagManager:
   - PlayerOneShotDartTag
   - AirBubbleTag
   - WallTag
+  - PlayerOneTag
+  - MoneyTag
   layers:
   - Default
   - TransparentFX

@@ -95,11 +95,12 @@ public class AirBubbleController : MonoBehaviour
 
         // Satunnainen voima ylöspäin ja sivuille
         Vector3 randomForce = new Vector3(
-            Random.Range(-2f, 2f), // Satunnainen voima sivulle
+            Random.Range(-4f, 4f), // Satunnainen voima sivulle
             Random.Range(2f, 4f),  // Satunnainen voima ylöspäin
             0f); // Ei liikuta rahaa eteenpäin tai taaksepäin
 
         // Annetaan rahalle satunnainen voima
         rb.AddForce(randomForce, ForceMode.Impulse);
     }
+
 }

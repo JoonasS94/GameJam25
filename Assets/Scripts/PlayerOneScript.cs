@@ -61,4 +61,16 @@ public class PlayerOneScript : MonoBehaviour
         return false;
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        // Tarkistetaan, onko törmäävä objekti merkitty 'PlatformTag'-tagilla
+        if (collision.gameObject.CompareTag("MoneyTag"))
+        {
+            // Tuhoaa raha objektin
+            Destroy(collision.gameObject);
+
+            Debug.Log("rahaa pelaajalle");
+        }
+    }
+
 }
