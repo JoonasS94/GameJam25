@@ -4,6 +4,8 @@ public class PlayerOneScript : MonoBehaviour
 {
     public float jumpForce = 5f; // Hyppyvoima, muokattavissa editorissa
     private Rigidbody rb; // Viittaus Rigidbody-komponenttiin
+    public float horizontalInput;
+    private float playerSpeed = 10.0f;
 
     void Start()
     {
@@ -19,11 +21,19 @@ public class PlayerOneScript : MonoBehaviour
 
     void Update()
     {
+        // Pelaajan tatin liikkuminen vasemmalle tai oikealle
+        horizontalInput = Input.GetAxis("Horizontal");
+        float xRaw = Input.GetAxisRaw("Horizontal");
+
         // Tarkista, painetaanko A-nappia (JoystickButton0 Xbox-ohjaimessa)
         if (Input.GetKeyDown(KeyCode.JoystickButton0) && IsGrounded())
         {
             Jump();
         }
+
+        // Pelaajan liikkuminen vasemmalle tai oikealle toteutus
+        transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * playerSpeed);
+
     }
 
     private void Jump()
