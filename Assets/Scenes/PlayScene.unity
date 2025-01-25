@@ -161,7 +161,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 128601220}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b22599dd8bcb9f4fbcd2ebf2373466e, type: 3}
+  m_Script: {fileID: 11500000, guid: d67518d5e5f40074c9292a60e5aae92b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerTwoWeapon: {fileID: 128601221}
@@ -169,7 +169,6 @@ MonoBehaviour:
   PlayerTwoShotBubblePrefab: {fileID: 8150947199497934330, guid: 571a22bd8756cbf4aba6afd25b73adc3, type: 3}
   PlayerTwoShotDartPrefab: {fileID: 2889297465464352560, guid: 561ff4c113ecf554ea6b7793b15c6693, type: 3}
   PlayerTwoWeaponMuzzle: {fileID: 702989970}
-  ShotPower: 5
 --- !u!1 &243834244
 GameObject:
   m_ObjectHideFlags: 0
