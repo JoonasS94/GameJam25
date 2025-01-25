@@ -16,8 +16,7 @@ public class PlayerTwoShotDartController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        // Tarkistetaan, onko törmäävä objekti merkitty 'PlatformTag'-tagilla
-        if (collision.gameObject.CompareTag("PlatformTag") || collision.gameObject.CompareTag("WallTag") || collision.gameObject.CompareTag("PlayerOneShotDartTag") || collision.gameObject.CompareTag("PlayerOneShotBubbleTag") || collision.gameObject.CompareTag("PlayerTwoShotDartTag") || collision.gameObject.CompareTag("PlayerTwoShotBubbleTag"))
+        if (!collision.gameObject.CompareTag("AirBubbleTag") && !collision.gameObject.CompareTag("PlayerTwoTag"))
         {
             // Tuhoaa tämän objektin
             Destroy(gameObject);
