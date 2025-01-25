@@ -21,11 +21,14 @@ public class AirBubbleController : MonoBehaviour
     private bool AirBubbleThirdHit = false;
     private bool ReadyToBurst = false;
 
+    private GameController gameController;
+
     void Start()
     {
         // Asetetaan aloituspaikka ja k‰ynnistet‰‰n Coroutine
         targetX = Random.Range(minX, maxX);
         targetY = Random.Range(minY, maxY);
+        gameController = GameObject.Find("GameController")?.GetComponent<GameController>(); // Assign GameController
         StartCoroutine(MoveBubble());
     }
 
@@ -111,7 +114,40 @@ public class AirBubbleController : MonoBehaviour
             // joka tippuu maahan.
             if (ReadyToBurst == true)
             {
-                SpawnMoney();
+                // Check if gameController exists to prevent null reference
+                if (gameController != null)
+                {
+                    int matchRemainingNumber = gameController.matchTimer;
+
+                    int MoneySpawnRepeat = 1; // Default value
+
+                    if (matchRemainingNumber > 91)
+                    {
+                        MoneySpawnRepeat = 1;
+                    }
+                    else if (matchRemainingNumber > 61 && matchRemainingNumber <= 91)
+                    {
+                        MoneySpawnRepeat = 2;
+                    }
+                    else if (matchRemainingNumber > 31 && matchRemainingNumber <= 61)
+                    {
+                        MoneySpawnRepeat = 3;
+                    }
+                    else if (matchRemainingNumber <= 31)
+                    {
+                        MoneySpawnRepeat = 4;
+                    }
+
+                    for (int i = 0; i < MoneySpawnRepeat; i++)
+                    {
+                        SpawnMoney();
+                    }
+                }
+                else
+                {
+                    Debug.LogError("GameController not found!");
+                }
+
                 Destroy(gameObject);
             }
         }
@@ -133,5 +169,4 @@ public class AirBubbleController : MonoBehaviour
         // Annetaan rahalle satunnainen voima
         rb.AddForce(randomForce, ForceMode.Impulse);
     }
-
 }
