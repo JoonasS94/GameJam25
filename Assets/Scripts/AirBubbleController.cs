@@ -10,7 +10,7 @@ public class AirBubbleController : MonoBehaviour
     public float maxX = 8.0f; // Ylin X-raja
     public float moveSpeed = 1.0f; // Kuplan liikkumisnopeus
     public float minCooldown = 0.1f; // Minimicooldown
-    public float maxCooldown = 1f; // Maksimicooldown
+    public float maxCooldown = 0.2f; // Maksimicooldown
 
     private float targetX;
     private float targetY;
@@ -37,7 +37,7 @@ public class AirBubbleController : MonoBehaviour
         StartCoroutine(MoveBubble());
     }
 
-    // Coroutine liikuttamaan kuplaa
+    // Coroutine liikuttamaan kuplaa smoothisti
     IEnumerator MoveBubble()
     {
         while (true)
@@ -50,26 +50,39 @@ public class AirBubbleController : MonoBehaviour
                 float cooldownTime = Random.Range(minCooldown, maxCooldown);
                 yield return new WaitForSeconds(cooldownTime);
 
-                // Satunnainen liike kohti uutta sijaintia
-                float step = moveSpeed * Time.deltaTime;
-
-                // Liikuta kuplaa kohti satunnaisesti valittuja koordinaatteja
+                // Satunnainen uusi sijainti
                 targetX = Random.Range(minX, maxX);
                 targetY = Random.Range(minY, maxY);
+                Vector3 targetPosition = new Vector3(targetX, targetY, transform.position.z);
 
-                while (Mathf.Abs(transform.position.x - targetX) > 0.1f || Mathf.Abs(transform.position.y - targetY) > 0.1f)
+                // Alkuperäinen sijainti
+                Vector3 startPosition = transform.position;
+
+                // Aika, joka liikkeeseen kuluu
+                float travelTime = Vector3.Distance(startPosition, targetPosition) / moveSpeed;
+                float elapsedTime = 0f;
+
+                // Interpoloi sijaintia smoothisti
+                while (elapsedTime < travelTime)
                 {
-                    float newX = Mathf.MoveTowards(transform.position.x, targetX, step);
-                    float newY = Mathf.MoveTowards(transform.position.y, targetY, step);
-                    transform.position = new Vector3(newX, newY, transform.position.z);
+                    elapsedTime += Time.deltaTime;
+                    float t = elapsedTime / travelTime;
+
+                    // Käytetään Lerp:iä smoothiin liikkeeseen
+                    transform.position = Vector3.Lerp(startPosition, targetPosition, Mathf.SmoothStep(0f, 1f, t));
+
                     yield return null; // Päivittää sijainnin seuraavassa frame:ssa
                 }
 
-                // Kun liike on valmis, pysytään paikallaan hetkisen ja siirrytään taas
+                // Varmista, että sijainti asettuu tarkasti kohteeseen
+                transform.position = targetPosition;
+
+                // Liike valmis, odota seuraavaa siirtoa
                 isMoving = false;
             }
         }
     }
+
 
     private void OnTriggerEnter(Collider other)
     {
