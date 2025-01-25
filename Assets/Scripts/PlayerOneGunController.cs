@@ -33,9 +33,6 @@ public class PlayerOneGunController : MonoBehaviour
             weapon.rotation = Quaternion.Euler(0, 0, angle);
         }
 
-
-
-
         // Lue R2-arvo
         float rightTrigger = Input.GetAxis("P1_RightTrigger");
 

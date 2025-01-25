@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerTwoGunController : MonoBehaviour
 {
-    public Transform weapon; // Ase, jota liikutetaan
+    public Transform PlayerTwoWeapon; // Ase, jota liikutetaan
     public bool PlayerTwoFiringCooldown = false;
     public GameObject PlayerTwoShotBubblePrefab;
     public GameObject PlayerTwoShotDartPrefab;
@@ -19,17 +19,6 @@ public class PlayerTwoGunController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
-        for (int i = 0; i < 20; i++) // Testaa napit 0-19
-        {
-            if (Input.GetKeyDown($"joystick 2 button {i}"))
-            {
-                Debug.Log($"Joystick 2 Button {i} painettu.");
-            }
-        }
-
-
         // Lue oikean tatin syöte
         float horizontal = Input.GetAxis("Joystick2.Joystick Axis 4"); // Tatista vaakasuuntainen liike
         float vertical = Input.GetAxis("Joystick2.Joystick Axis 5"); // Tatista pystysuuntainen liike
@@ -38,14 +27,11 @@ public class PlayerTwoGunController : MonoBehaviour
         if (horizontal != 0 || vertical != 0)
         {
             // Laske haluttu kulma
-            float angle = Mathf.Atan2(vertical, horizontal) * Mathf.Rad2Deg * -1 - 90;
+            float angle = Mathf.Atan2(vertical, horizontal) * Mathf.Rad2Deg * -1;
 
             // Aseta aseen rotaatio välittömästi
-            weapon.rotation = Quaternion.Euler(0, 0, angle);
+            PlayerTwoWeapon.rotation = Quaternion.Euler(0, 0, angle);
         }
-
-
-
 
         // Lue R2-arvo
         float rightTrigger = Input.GetAxis("P2_RightTrigger");
