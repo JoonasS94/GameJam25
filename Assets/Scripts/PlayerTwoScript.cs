@@ -73,7 +73,7 @@ public class PlayerTwoScript : MonoBehaviour
 
             Debug.Log("rahaa pelaajalle");
             playerTwoMoney += 1;
-            playerTwoMoneyText.text = "P1 Money: " + playerTwoMoney;
+            playerTwoMoneyText.text = "P2 Money: " + playerTwoMoney;
         }
 
         if (collision.gameObject.CompareTag("PlayerOneShotDartTag"))
