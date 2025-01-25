@@ -953,7 +953,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1157802713
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1084,7 +1084,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 6
-  horizontalInput: 0
   playerTwoMoney: 0
   playerTwoMoneyText: {fileID: 590609433}
 --- !u!1 &1241738070
@@ -2258,7 +2257,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 6
-  horizontalInput: 0
   playerOneMoney: 0
   playerOneMoneyText: {fileID: 243834246}
 --- !u!1660057539 &9223372036854775807

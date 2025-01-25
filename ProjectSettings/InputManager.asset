@@ -20,7 +20,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 0
-    joyNum: 1
+    joyNum: 2
   - serializedVersion: 3
     m_Name: P2_Horizontal
     descriptiveName: 
@@ -52,7 +52,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 2
-    joyNum: 1
+    joyNum: 2
   - serializedVersion: 3
     m_Name: P2_RightTrigger
     descriptiveName: 
@@ -84,7 +84,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 8
-    joyNum: 1
+    joyNum: 2
   - serializedVersion: 3
     m_Name: P2_LeftTrigger
     descriptiveName: 
@@ -170,7 +170,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick 1 button 0
+    positiveButton: joystick 2 button 0
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -180,7 +180,7 @@ InputManager:
     invert: 0
     type: 0
     axis: 0
-    joyNum: 1
+    joyNum: 2
   - serializedVersion: 3
     m_Name: P2_Jump
     descriptiveName: 
@@ -228,7 +228,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 3
-    joyNum: 1
+    joyNum: 2
   - serializedVersion: 3
     m_Name: Joystick2.Joystick Axis 4
     descriptiveName: 
@@ -244,7 +244,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 4
-    joyNum: 2
+    joyNum: 1
   - serializedVersion: 3
     m_Name: Joystick1.Joystick Axis 5
     descriptiveName: 
@@ -260,7 +260,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 4
-    joyNum: 1
+    joyNum: 2
   - serializedVersion: 3
     m_Name: Joystick2.Joystick Axis 5
     descriptiveName: 
@@ -276,7 +276,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 5
-    joyNum: 2
+    joyNum: 1
   - serializedVersion: 3
     m_Name: Mouse Y
     descriptiveName: 
