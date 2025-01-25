@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 1714a568d88f6eb40b145a0aafb24200
+guid: 6b4c92e592d5b3c468c448b4d3ede902
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4000089397774515349
-    second: BigBubble_0
+      213: -5697155385414617759
+    second: BigBubble_step1_0
   - first:
-      213: 3805372150969759226
-    second: BigBubble_1
+      213: -1193637636164509545
+    second: BigBubble_step1_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -142,11 +142,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BigBubble_0
+      name: BigBubble_step1_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 303
+        x: 73
+        y: 362
         width: 6
         height: 17
       alignment: 0
@@ -157,20 +157,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b6308d7d2e3dc78c0800000000000000
-      internalID: -4000089397774515349
+      spriteID: 165782e9c53afe0b0800000000000000
+      internalID: -5697155385414617759
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BigBubble_1
+      name: BigBubble_step1_1
       rect:
         serializedVersion: 2
-        x: 4
-        y: 5
+        x: 75
+        y: 64
         width: 487
-        height: 522
+        height: 528
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,8 +179,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: af577b04fc56fc430800000000000000
-      internalID: 3805372150969759226
+      spriteID: 790a0e1e4e85f6fe0800000000000000
+      internalID: -1193637636164509545
       vertices: []
       indices: 
       edges: []
@@ -198,9 +198,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      BigBubble_0: -4000089397774515349
-      BigBubble_1: 3805372150969759226
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -23,6 +23,11 @@ public class AirBubbleController : MonoBehaviour
 
     private GameController gameController;
 
+    public Texture AirBubbleTexture1;
+    public Texture AirBubbleTexture2;
+    public Texture AirBubbleTexture3;
+    public Texture AirBubbleTexture4;
+
     void Start()
     {
         // Asetetaan aloituspaikka ja k‰ynnistet‰‰n Coroutine
@@ -66,7 +71,6 @@ public class AirBubbleController : MonoBehaviour
         }
     }
 
-    // T‰m‰ metodi tunnistaa osumat 3D-muotoiselle kuplalle
     private void OnTriggerEnter(Collider other)
     {
         // Tarkistetaan, osuuko pelaajan ampuma kupla (vertaa tagiin)
@@ -75,32 +79,41 @@ public class AirBubbleController : MonoBehaviour
             Debug.Log("Pelaajan ampuma kupla osui ilmassa leijuvaan kuplaan");
             Destroy(other.gameObject);
 
-            // 4. osuma ilmakuplaan kuplalla
-            if (AirBubbleThirdHit == true && ReadyToBurst == false)
+            // Estet‰‰n p‰ivitykset, jos kupla on jo tuhottavissa
+            if (ReadyToBurst)
             {
-                ReadyToBurst = true;
-                Debug.Log("Ilmakuplaan osuttu 4. kerran. Nyt voi tuhota tikalla.");
+                Debug.Log("Kupla on jo viimeisess‰ tilassa. Osuma ei muuta tilaa.");
+                return;
             }
 
-            // 3. osuma ilmakuplaan kuplalla
-            if (AirBubbleSecondHit == true)
-            {
-                AirBubbleThirdHit = true;
-                Debug.Log("Ilmakuplaan osuttu 3. kerran.");
-            }
-
-            // 2. osuma ilmakuplaan kuplalla
-            if (AirBubbleFirstHit == true)
-            {
-                AirBubbleSecondHit = true;
-                Debug.Log("Ilmakuplaan osuttu 2. kerran");
-            }
-
-            // 1. osuma ilmakuplaan kuplalla
-            if (AirBubbleFirstHit == false)
+            // Vaihdetaan tekstuuri osumien mukaan
+            if (!AirBubbleFirstHit)
             {
                 AirBubbleFirstHit = true;
+                MeshRenderer renderer = GetComponent<MeshRenderer>();
+                renderer.material.mainTexture = AirBubbleTexture1;
                 Debug.Log("Ilmakuplaan osuttu kerran");
+            }
+            else if (AirBubbleFirstHit && !AirBubbleSecondHit)
+            {
+                AirBubbleSecondHit = true;
+                MeshRenderer renderer = GetComponent<MeshRenderer>();
+                renderer.material.mainTexture = AirBubbleTexture2;
+                Debug.Log("Ilmakuplaan osuttu 2. kerran");
+            }
+            else if (AirBubbleSecondHit && !AirBubbleThirdHit)
+            {
+                AirBubbleThirdHit = true;
+                MeshRenderer renderer = GetComponent<MeshRenderer>();
+                renderer.material.mainTexture = AirBubbleTexture3;
+                Debug.Log("Ilmakuplaan osuttu 3. kerran");
+            }
+            else if (AirBubbleThirdHit)
+            {
+                ReadyToBurst = true;
+                MeshRenderer renderer = GetComponent<MeshRenderer>();
+                renderer.material.mainTexture = AirBubbleTexture4;
+                Debug.Log("Ilmakuplaan osuttu 4. kerran. Nyt voi tuhota tikalla.");
             }
         }
 
@@ -112,9 +125,8 @@ public class AirBubbleController : MonoBehaviour
 
             // Mik‰li ilmakupla on tuhottavissa ja siihen osuu tikka, ilmakupla tuhoutuu ja sen tilalle syntyy rahaa,
             // joka tippuu maahan.
-            if (ReadyToBurst == true)
+            if (ReadyToBurst)
             {
-                // Check if gameController exists to prevent null reference
                 if (gameController != null)
                 {
                     int matchRemainingNumber = gameController.matchTimer;
@@ -152,6 +164,8 @@ public class AirBubbleController : MonoBehaviour
             }
         }
     }
+
+
 
     // Luodaan rahaa, joka lent‰‰ ylˆs ja sivulle ennen kuin putoaa alas
     private void SpawnMoney()

@@ -77,7 +77,7 @@ public class GameController : MonoBehaviour
         Vector3 AirBubbleSpawnPosition = new Vector3(targetX, targetY, 0);
 
         // Instantiate the air bubble at the calculated position
-        GameObject airBubble = Instantiate(AirBubblePrefab, AirBubbleSpawnPosition, Quaternion.identity);
+        GameObject airBubble = Instantiate(AirBubblePrefab, AirBubbleSpawnPosition, (Quaternion.identity * Quaternion.Euler(0, 0, 180)));
 
         // Aseta instansoidulle kuplalle tagi, jotta se voidaan tunnistaa
         airBubble.tag = "AirBubbleTag";

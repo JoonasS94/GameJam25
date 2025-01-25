@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 6639742826250642187}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.06, y: 3.82, z: -0.00091669895}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6639742826250642187}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &4094049131352559290
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -157,3 +157,7 @@ MonoBehaviour:
   minCooldown: 5
   maxCooldown: 10
   MoneyPrefab: {fileID: 5384329811208240810, guid: e9f0f14911ec34f479d0f59fa508bb88, type: 3}
+  AirBubbleTexture1: {fileID: 2800000, guid: 6b4c92e592d5b3c468c448b4d3ede902, type: 3}
+  AirBubbleTexture2: {fileID: 2800000, guid: 627a872e4091be94693842551246057f, type: 3}
+  AirBubbleTexture3: {fileID: 2800000, guid: 3c552627ab97360468ecc067d7eeee9c, type: 3}
+  AirBubbleTexture4: {fileID: 2800000, guid: 607a93c5fe0d4cd47ad7129f298db537, type: 3}
