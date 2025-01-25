@@ -71,7 +71,7 @@ public class AirBubbleController : MonoBehaviour
         }
 
         // Tarkistetaan, osuuko pelaajan ampuma tikka (vertaa tagiin)
-        if (other.CompareTag("PlayerOneShotDartTag"))
+        if (other.CompareTag("PlayerOneShotDartTag") || other.CompareTag("PlayerTwoShotDartTag"))
         {
             Debug.Log("Pelaajan ampuma tikka osui ilmassa leijuvaan kuplaan");
             Destroy(other.gameObject);

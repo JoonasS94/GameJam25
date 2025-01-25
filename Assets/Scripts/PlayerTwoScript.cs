@@ -1,12 +1,13 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 public class PlayerTwoScript : MonoBehaviour
 {
-    public float jumpForce = 6f; // Hyppyvoima, muokattavissa editorissa
+    public float PlayerTwojumpForce = 6f; // Hyppyvoima, muokattavissa editorissa
     private Rigidbody rb; // Viittaus Rigidbody-komponenttiin
     private float horizontalInput;
-    private float playerSpeed = 6.0f;
+    public float PlayerTwoplayerSpeed = 6.0f;
     public int playerTwoMoney;
     public TextMeshProUGUI playerTwoMoneyText;
 
@@ -34,13 +35,13 @@ public class PlayerTwoScript : MonoBehaviour
         }
 
         // Pelaajan liikkuminen vasemmalle tai oikealle toteutus
-        transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * playerSpeed);
+        transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * PlayerTwoplayerSpeed);
     }
 
     private void Jump()
     {
         // Lisää ylöspäin suuntautuva voima Rigidbodyyn
-        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        rb.AddForce(Vector3.up * PlayerTwojumpForce, ForceMode.Impulse);
         Debug.Log("Hyppy kun painetaan 2. ohjaimen X-nappia");
     }
 
@@ -74,6 +75,22 @@ public class PlayerTwoScript : MonoBehaviour
             playerTwoMoney += 1;
             playerTwoMoneyText.text = "P1 Money: " + playerTwoMoney;
         }
+
+        if (collision.gameObject.CompareTag("PlayerOneShotDartTag"))
+        {
+            StartCoroutine(StunPlayerTwo());
+            // Tuhoaa pelaajaan osuneen tikan, mutta hidastetaan vihua hyvin lyhyen aikaa
+            Destroy(collision.gameObject);
+        }
     }
 
+    IEnumerator StunPlayerTwo()
+    {
+        Debug.Log("Tikka osui ja p2 hidastettu");
+        PlayerTwojumpForce = 1f;
+        PlayerTwoplayerSpeed = 1f;
+        yield return new WaitForSeconds(0.3f);
+        PlayerTwojumpForce = 6f;
+        PlayerTwoplayerSpeed = 6f;
+    }
 }

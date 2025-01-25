@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 128601222}
   m_Layer: 0
   m_Name: PlayerTwoGunHoldpoint
-  m_TagString: Untagged
+  m_TagString: PlayerTwoTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1083,7 +1083,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91ef658f5b9ec049b97ddaf6303997e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 6
+  PlayerTwojumpForce: 6
+  PlayerTwoplayerSpeed: 6
   playerTwoMoney: 0
   playerTwoMoneyText: {fileID: 590609433}
 --- !u!1 &1241738070
