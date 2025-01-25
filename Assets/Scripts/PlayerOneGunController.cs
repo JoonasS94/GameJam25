@@ -80,7 +80,7 @@ public class PlayerOneGunController : MonoBehaviour
             StartCoroutine(PlayerOneFiringCooldownTimer());
 
             // Instansioi tikka aseen piipusta ja huomioi aseen rotaatio
-            GameObject createdPlayerOneDart = Instantiate(PlayerOneShotDartPrefab, PlayerOneWeaponMuzzle.position, PlayerOneWeaponMuzzle.rotation);
+            GameObject createdPlayerOneDart = Instantiate(PlayerOneShotDartPrefab, PlayerOneWeaponMuzzle.position, PlayerOneWeaponMuzzle.rotation * Quaternion.Euler(0, 0, 270));
 
             // Tikka Rb
             Rigidbody PlayerOneDartRigidbody = createdPlayerOneDart.GetComponent<Rigidbody>();

@@ -86,7 +86,7 @@ public class PlayerTwoGunController : MonoBehaviour
             StartCoroutine(PlayerTwoFiringCooldownTimer());
 
             // Instansioi tikka aseen piipusta ja huomioi aseen rotaatio
-            GameObject createdPlayerTwoDart = Instantiate(PlayerTwoShotDartPrefab, PlayerTwoWeaponMuzzle.position, PlayerTwoWeaponMuzzle.rotation);
+            GameObject createdPlayerTwoDart = Instantiate(PlayerTwoShotDartPrefab, PlayerTwoWeaponMuzzle.position, PlayerTwoWeaponMuzzle.rotation * Quaternion.Euler(0, 0, 270));
 
             // Tikka Rb
             Rigidbody PlayerTwoDartRigidbody = createdPlayerTwoDart.GetComponent<Rigidbody>();
