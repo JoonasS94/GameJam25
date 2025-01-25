@@ -26,6 +26,7 @@ public class GameController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour on luotu
     void Start()
     {
+        Application.targetFrameRate = 60;
         StartCoroutine(StartInfo());
     }
 

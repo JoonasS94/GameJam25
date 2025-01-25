@@ -10,7 +10,7 @@ public class AirBubbleController : MonoBehaviour
     public float maxX = 8.0f; // Ylin X-raja
     public float moveSpeed = 1.0f; // Kuplan liikkumisnopeus
     public float minCooldown = 0.1f; // Minimicooldown
-    public float maxCooldown = 5f; // Maksimicooldown
+    public float maxCooldown = 1f; // Maksimicooldown
 
     private float targetX;
     private float targetY;

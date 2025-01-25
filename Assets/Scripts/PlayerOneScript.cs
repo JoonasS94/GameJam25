@@ -78,7 +78,7 @@ public class PlayerOneScript : MonoBehaviour
             playerOneMoneyText.text = "P1 Money: " + playerOneMoney;
         }
 
-        if (collision.gameObject.CompareTag("PlayerOneShotDartTag"))
+        if (collision.gameObject.CompareTag("PlayerTwoShotDartTag"))
         {
             StartCoroutine(StunPlayerOne());
             // Tuhoaa pelaajaan osuneen tikan, mutta hidastetaan vihua hyvin lyhyen aikaa
