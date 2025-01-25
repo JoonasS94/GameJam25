@@ -15,8 +15,11 @@ public class AirBubbleController : MonoBehaviour
     private float targetX;
     private float targetY;
     private bool isMoving = false; // Varmistaa, että liike tapahtuu vain, kun kupla ei ole jo liikkeessä
-    private bool destroyable = true;
     public GameObject MoneyPrefab;
+    private bool AirBubbleFirstHit = false;
+    private bool AirBubbleSecondHit = false;
+    private bool AirBubbleThirdHit = false;
+    private bool ReadyToBurst = false;
 
     void Start()
     {
@@ -64,10 +67,38 @@ public class AirBubbleController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Tarkistetaan, osuuko pelaajan ampuma kupla (vertaa tagiin)
-        if (other.CompareTag("PlayerOneShotBubbleTag"))
+        if (other.CompareTag("PlayerOneShotBubbleTag") || other.CompareTag("PlayerTwoShotBubbleTag"))
         {
             Debug.Log("Pelaajan ampuma kupla osui ilmassa leijuvaan kuplaan");
             Destroy(other.gameObject);
+
+            // 4. osuma ilmakuplaan kuplalla
+            if (AirBubbleThirdHit == true && ReadyToBurst == false)
+            {
+                ReadyToBurst = true;
+                Debug.Log("Ilmakuplaan osuttu 4. kerran. Nyt voi tuhota tikalla.");
+            }
+
+            // 3. osuma ilmakuplaan kuplalla
+            if (AirBubbleSecondHit == true)
+            {
+                AirBubbleThirdHit = true;
+                Debug.Log("Ilmakuplaan osuttu 3. kerran.");
+            }
+
+            // 2. osuma ilmakuplaan kuplalla
+            if (AirBubbleFirstHit == true)
+            {
+                AirBubbleSecondHit = true;
+                Debug.Log("Ilmakuplaan osuttu 2. kerran");
+            }
+
+            // 1. osuma ilmakuplaan kuplalla
+            if (AirBubbleFirstHit == false)
+            {
+                AirBubbleFirstHit = true;
+                Debug.Log("Ilmakuplaan osuttu kerran");
+            }
         }
 
         // Tarkistetaan, osuuko pelaajan ampuma tikka (vertaa tagiin)
@@ -78,7 +109,7 @@ public class AirBubbleController : MonoBehaviour
 
             // Mikäli ilmakupla on tuhottavissa ja siihen osuu tikka, ilmakupla tuhoutuu ja sen tilalle syntyy rahaa,
             // joka tippuu maahan.
-            if (destroyable == true)
+            if (ReadyToBurst == true)
             {
                 SpawnMoney();
                 Destroy(gameObject);
