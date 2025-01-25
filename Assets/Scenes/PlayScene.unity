@@ -1610,7 +1610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91ef658f5b9ec049b97ddaf6303997e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerTwojumpForce: 6
+  PlayerTwojumpForce: 7
   PlayerTwoplayerSpeed: 6
   playerTwoMoney: 0
   playerTwoMoneyText: {fileID: 590609433}
@@ -2925,7 +2925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7d737958334ae944aa521481eb5cca8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerOnejumpForce: 6
+  PlayerOnejumpForce: 7
   PlayerOneplayerSpeed: 6
   playerOneMoney: 0
   playerOneMoneyText: {fileID: 243834246}

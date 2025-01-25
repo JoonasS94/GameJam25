@@ -4,7 +4,7 @@ using System.Collections;
 
 public class PlayerTwoScript : MonoBehaviour
 {
-    public float PlayerTwojumpForce = 6f; // Hyppyvoima, muokattavissa editorissa
+    public float PlayerTwojumpForce = 7f; // Hyppyvoima, muokattavissa editorissa
     private Rigidbody rb; // Viittaus Rigidbody-komponenttiin
     private float horizontalInput;
     public float PlayerTwoplayerSpeed = 6.0f;
@@ -94,7 +94,7 @@ public class PlayerTwoScript : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         if (GameControllerScript.matchEnded == false)
         {
-            PlayerTwojumpForce = 6f;
+            PlayerTwojumpForce = 7f;
             PlayerTwoplayerSpeed = 6f;
         }
         else
