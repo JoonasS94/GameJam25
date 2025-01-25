@@ -13,7 +13,7 @@ public class PlayerTwoGunController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -36,6 +36,9 @@ public class PlayerTwoGunController : MonoBehaviour
         // Lue R2-arvo
         float rightTrigger = Input.GetAxis("P2_RightTrigger");
 
+        // Debuggaa oikea trigger
+        Debug.Log("P2_RightTrigger: " + rightTrigger);
+
         // Tarkista, painetaanko R2:sta
         if (rightTrigger > 0.1f)
         {
@@ -46,7 +49,10 @@ public class PlayerTwoGunController : MonoBehaviour
         // Lue L2-arvo
         float leftTrigger = Input.GetAxis("P2_LeftTrigger");
 
-        // Tarkista, painetaanko RT:tä
+        // Debuggaa vasen trigger
+        Debug.Log("P2_LeftTrigger: " + leftTrigger);
+
+        // Tarkista, painetaanko L2:sta
         if (leftTrigger > 0.1f)
         {
             Debug.Log("L2 painettu, arvo: " + leftTrigger);
