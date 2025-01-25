@@ -1,14 +1,14 @@
 using UnityEngine;
 using TMPro;
 
-public class PlayerOneScript : MonoBehaviour
+public class PlayerTwoScript : MonoBehaviour
 {
     public float jumpForce = 6f; // Hyppyvoima, muokattavissa editorissa
     private Rigidbody rb; // Viittaus Rigidbody-komponenttiin
     private float horizontalInput;
     private float playerSpeed = 6.0f;
-    public int playerOneMoney;
-    public TextMeshProUGUI playerOneMoneyText;
+    public int playerTwoMoney;
+    public TextMeshProUGUI playerTwoMoneyText;
 
     void Start()
     {
@@ -25,10 +25,10 @@ public class PlayerOneScript : MonoBehaviour
     void Update()
     {
         // Pelaajan tatin liikkuminen vasemmalle tai oikealle
-        horizontalInput = Input.GetAxis("P1_Horizontal");
+        horizontalInput = Input.GetAxis("P2_Horizontal");
 
-        // Tarkista, painetaanko A-nappia (JoystickButton0 Xbox-ohjaimessa)
-        if (Input.GetButtonDown("P1_Jump") && IsGrounded())
+        // Tarkista, painetaanko X-nappia (JoystickButton0 PlayStation-ohjaimessa)
+        if (Input.GetButtonDown("P2_Jump") && IsGrounded())
         {
             Jump();
         }
@@ -41,7 +41,7 @@ public class PlayerOneScript : MonoBehaviour
     {
         // Lisää ylöspäin suuntautuva voima Rigidbodyyn
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        Debug.Log("Hyppy kun painetaan Xbox-one ohjaimen A-nappia");
+        Debug.Log("Hyppy kun painetaan 2. ohjaimen X-nappia");
     }
 
     private bool IsGrounded()
@@ -71,8 +71,8 @@ public class PlayerOneScript : MonoBehaviour
             Destroy(collision.gameObject);
 
             Debug.Log("rahaa pelaajalle");
-            playerOneMoney += 1;
-            playerOneMoneyText.text = "P1 Money: " + playerOneMoney;
+            playerTwoMoney += 1;
+            playerTwoMoneyText.text = "P1 Money: " + playerTwoMoney;
         }
     }
 

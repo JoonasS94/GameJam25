@@ -12,6 +12,9 @@ TagManager:
   - WallTag
   - PlayerOneTag
   - MoneyTag
+  - PlayerTwoTag
+  - PlayerTwoShotBubbleTag
+  - PlayerTwoShotDartTag
   layers:
   - Default
   - TransparentFX

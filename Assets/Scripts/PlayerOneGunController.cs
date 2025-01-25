@@ -20,8 +20,8 @@ public class PlayerOneGunController : MonoBehaviour
     void Update()
     {
         // Lue oikean tatin syöte
-        float horizontal = Input.GetAxis("Joystick Axis 4"); // Tatista vaakasuuntainen liike
-        float vertical = Input.GetAxis("Joystick Axis 5"); // Tatista pystysuuntainen liike
+        float horizontal = Input.GetAxis("Joystick1.Joystick Axis 4"); // Tatista vaakasuuntainen liike
+        float vertical = Input.GetAxis("Joystick1.Joystick Axis 5"); // Tatista pystysuuntainen liike
 
         // Tarkista, onko tatti liikkeessä
         if (horizontal != 0 || vertical != 0)
@@ -36,23 +36,23 @@ public class PlayerOneGunController : MonoBehaviour
 
 
 
-        // Lue RT (R2)-arvo
-        float rightTrigger = Input.GetAxis("RightTrigger");
+        // Lue R2-arvo
+        float rightTrigger = Input.GetAxis("P1_RightTrigger");
 
-        // Tarkista, painetaanko RT:tä
+        // Tarkista, painetaanko R2:sta
         if (rightTrigger > 0.1f)
         {
-            Debug.Log("RT painettu, arvo: " + rightTrigger);
+            Debug.Log("R2 painettu, arvo: " + rightTrigger);
             FirePlayerOneWeaponBubble();
         }
 
-        // Lue LT (L2)-arvo
-        float leftTrigger = Input.GetAxis("LeftTrigger");
+        // Lue L2-arvo
+        float leftTrigger = Input.GetAxis("P1_LeftTrigger");
 
         // Tarkista, painetaanko RT:tä
         if (leftTrigger > 0.1f)
         {
-            Debug.Log("LT painettu, arvo: " + leftTrigger);
+            Debug.Log("L2 painettu, arvo: " + leftTrigger);
             FirePlayerOneWeaponDart();
         }
     }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerOneShotBubbleController : MonoBehaviour
+public class PlayerTwoShotBubbleController : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,7 +17,7 @@ public class PlayerOneShotBubbleController : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         // Tarkistetaan, onko törmäävä objekti merkitty 'PlatformTag'-tagilla
-        if (collision.gameObject.CompareTag("PlatformTag") || collision.gameObject.CompareTag("WallTag") || collision.gameObject.CompareTag("PlayerOneShotDartTag") || collision.gameObject.CompareTag("PlayerOneShotDartTag") || collision.gameObject.CompareTag("PlayerTwoShotBubbleTag") || collision.gameObject.CompareTag("PlayerTwoShotDartTag"))
+        if (collision.gameObject.CompareTag("PlatformTag") || collision.gameObject.CompareTag("WallTag") || collision.gameObject.CompareTag("PlayerOneShotBubbleTag") || collision.gameObject.CompareTag("PlayerOneShotDartTag") || collision.gameObject.CompareTag("PlayerTwoShotBubbleTag") || collision.gameObject.CompareTag("PlayerTwoShotDartTag"))
         {
             // Tuhoaa tämän objektin
             Destroy(gameObject);
