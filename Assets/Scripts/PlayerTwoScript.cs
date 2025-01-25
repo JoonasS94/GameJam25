@@ -11,6 +11,8 @@ public class PlayerTwoScript : MonoBehaviour
     public int playerTwoMoney;
     public TextMeshProUGUI playerTwoMoneyText;
 
+    public GameController GameControllerScript;
+
     void Start()
     {
         // Hae Rigidbody-komponentti
@@ -90,7 +92,15 @@ public class PlayerTwoScript : MonoBehaviour
         PlayerTwojumpForce = 1f;
         PlayerTwoplayerSpeed = 1f;
         yield return new WaitForSeconds(0.3f);
-        PlayerTwojumpForce = 6f;
-        PlayerTwoplayerSpeed = 6f;
+        if (GameControllerScript.matchEnded == false)
+        {
+            PlayerTwojumpForce = 6f;
+            PlayerTwoplayerSpeed = 6f;
+        }
+        else
+        {
+            PlayerTwojumpForce = 0;
+            PlayerTwoplayerSpeed = 0;
+        }
     }
 }

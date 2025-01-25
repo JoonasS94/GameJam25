@@ -7,9 +7,11 @@ public class PlayerOneScript : MonoBehaviour
     public float PlayerOnejumpForce = 6f; // Hyppyvoima, muokattavissa editorissa
     private Rigidbody rb; // Viittaus Rigidbody-komponenttiin
     private float horizontalInput;
-    private float PlayerOneplayerSpeed = 6.0f;
+    public float PlayerOneplayerSpeed = 6.0f;
     public int playerOneMoney;
     public TextMeshProUGUI playerOneMoneyText;
+
+    public GameController GameControllerScript;
 
     void Start()
     {
@@ -90,7 +92,15 @@ public class PlayerOneScript : MonoBehaviour
         PlayerOnejumpForce = 1f;
         PlayerOneplayerSpeed = 1f;
         yield return new WaitForSeconds(0.3f);
-        PlayerOnejumpForce = 6f;
-        PlayerOneplayerSpeed = 6f;
+        if (GameControllerScript.matchEnded == false)
+        {
+            PlayerOnejumpForce = 6f;
+            PlayerOneplayerSpeed = 6f;
+        }
+        else
+        {
+            PlayerOnejumpForce = 0;
+            PlayerOneplayerSpeed = 0;
+        }
     }
 }
