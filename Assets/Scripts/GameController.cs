@@ -101,8 +101,6 @@ public class GameController : MonoBehaviour
         TimerText.text = "And the winner is...";
 
         yield return new WaitForSeconds(3f);
-        P1MoneyInfo.SetActive(true);
-        P2MoneyInfo.SetActive(true);
         if (playerOneScript.playerOneMoney > playerTwoScript.playerTwoMoney)
         {
             TimerText.text = "PLAYER 1!!!";

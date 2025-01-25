@@ -36,8 +36,15 @@ public class MainMenuButtonController : MonoBehaviour
             Info();
         }
 
-
         // Xbox A-button
+        if (Input.GetKeyDown(KeyCode.Joystick2Button0) && InfoActive == true)
+        {
+            InfoActive = false;
+            Menu();
+        }
+
+
+        // Xbox A-button QUIT
         if (Input.GetKeyDown(KeyCode.Joystick2Button0) && InfoActive == false)
         {
             QuitGame();
@@ -56,6 +63,20 @@ public class MainMenuButtonController : MonoBehaviour
         MenuButtonObject.SetActive(true);
 
         QuitButtonObject.SetActive(false);
+    }
+
+    public void Menu()
+    {
+        ControllerInfoTextObject.SetActive(true);
+
+        InfoTextObject.SetActive(false);
+
+        PlayButtonObject.SetActive(true);
+        InfoButtonObject.SetActive(true);
+
+        MenuButtonObject.SetActive(false);
+
+        QuitButtonObject.SetActive(true);
     }
 
     public void QuitGame()

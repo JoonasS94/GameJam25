@@ -10,6 +10,9 @@ public class PlayerOneGunController : MonoBehaviour
     public Transform PlayerOneWeaponMuzzle;
     private float ShotPower = 5f;
 
+    public AudioSource PlayerOneGunControllerAudioSource;
+    public AudioClip[] PlayerOneGunControllerAudioClipArray;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -85,8 +88,10 @@ public class PlayerOneGunController : MonoBehaviour
             // Tikka Rb
             Rigidbody PlayerOneDartRigidbody = createdPlayerOneDart.GetComponent<Rigidbody>();
 
-            // Kuplaan energia jolla lähtee liikkeelle aseen piipusta eteenpain
+            // Tikkaan energia jolla lähtee liikkeelle aseen piipusta eteenpain
             PlayerOneDartRigidbody.AddForce(PlayerOneWeaponMuzzle.up * ShotPower, ForceMode.Impulse);
+
+            PlayerOneGunControllerAudioSource.PlayOneShot(RandomClip());
         }
     }
 
@@ -94,5 +99,10 @@ public class PlayerOneGunController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.3f);
         PlayerOneFiringCooldown = false;
+    }
+
+    AudioClip RandomClip()
+    {
+        return PlayerOneGunControllerAudioClipArray[Random.Range(0, 6)];
     }
 }

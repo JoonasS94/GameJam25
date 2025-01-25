@@ -91,7 +91,7 @@ public class PlayerTwoGunController : MonoBehaviour
             // Tikka Rb
             Rigidbody PlayerTwoDartRigidbody = createdPlayerTwoDart.GetComponent<Rigidbody>();
 
-            // Kuplaan energia jolla lähtee liikkeelle aseen piipusta eteenpain
+            // Tikkaan energia jolla lähtee liikkeelle aseen piipusta eteenpain
             PlayerTwoDartRigidbody.AddForce(PlayerTwoWeaponMuzzle.up * ShotPower, ForceMode.Impulse);
         }
     }
