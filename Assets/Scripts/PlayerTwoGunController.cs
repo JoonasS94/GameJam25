@@ -78,6 +78,8 @@ public class PlayerTwoGunController : MonoBehaviour
 
             // Kuplaan energia jolla lähtee liikkeelle aseen piipusta eteenpain
             PlayerTwoBubbleRigidbody.AddForce(PlayerTwoWeaponMuzzle.up * ShotPower, ForceMode.Impulse);
+
+            PlayerTwoGunControllerAudioSource.PlayOneShot(RandomBubbleSoundClip());
         }
     }
 
@@ -97,7 +99,7 @@ public class PlayerTwoGunController : MonoBehaviour
             // Tikkaan energia jolla lähtee liikkeelle aseen piipusta eteenpain
             PlayerTwoDartRigidbody.AddForce(PlayerTwoWeaponMuzzle.up * ShotPower, ForceMode.Impulse);
 
-            PlayerTwoGunControllerAudioSource.PlayOneShot(RandomClip());
+            PlayerTwoGunControllerAudioSource.PlayOneShot(RandomDartSoundClip());
         }
     }
 
@@ -107,8 +109,13 @@ public class PlayerTwoGunController : MonoBehaviour
         PlayerTwoFiringCooldown = false;
     }
 
-    AudioClip RandomClip()
+    AudioClip RandomDartSoundClip()
     {
         return PlayerTwoGunControllerAudioClipArray[Random.Range(0, 6)];
+    }
+
+    AudioClip RandomBubbleSoundClip()
+    {
+        return PlayerTwoGunControllerAudioClipArray[Random.Range(7, 14)];
     }
 }
