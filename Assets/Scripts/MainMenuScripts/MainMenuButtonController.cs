@@ -15,6 +15,9 @@ public class MainMenuButtonController : MonoBehaviour
     public GameObject QuitButtonObject;
     public GameObject InfoTextObject;
 
+    public GameObject BackgroundCover1;
+    public GameObject BackgroundCover2;
+
     public AudioSource MainMenuScriptAudioSource;
     public AudioClip[] MainMenuScriptAudioClipArray;
 
@@ -62,6 +65,8 @@ public class MainMenuButtonController : MonoBehaviour
 
     public void Info()
     {
+        BackgroundCover1.SetActive(false);
+        BackgroundCover2.SetActive(true);
         ControllerInfoTextObject.SetActive(false);
 
         InfoTextObject.SetActive(true);
@@ -76,6 +81,8 @@ public class MainMenuButtonController : MonoBehaviour
 
     public void Menu()
     {
+        BackgroundCover1.SetActive(true);
+        BackgroundCover2.SetActive(false);
         ControllerInfoTextObject.SetActive(true);
 
         InfoTextObject.SetActive(false);
