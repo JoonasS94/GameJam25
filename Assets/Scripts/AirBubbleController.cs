@@ -28,6 +28,9 @@ public class AirBubbleController : MonoBehaviour
     public Texture AirBubbleTexture3;
     public Texture AirBubbleTexture4;
 
+    public AudioSource AirBubbleControllerAudioSource;
+    public AudioClip[] AirBubbleControllerAudioClipArray;
+
     void Start()
     {
         // Asetetaan aloituspaikka ja k‰ynnistet‰‰n Coroutine
@@ -127,6 +130,7 @@ public class AirBubbleController : MonoBehaviour
                 MeshRenderer renderer = GetComponent<MeshRenderer>();
                 renderer.material.mainTexture = AirBubbleTexture4;
                 Debug.Log("Ilmakuplaan osuttu 4. kerran. Nyt voi tuhota tikalla.");
+                AirBubbleControllerAudioSource.PlayOneShot(RandomAirBubbleBurstSoundClip());
             }
         }
 
@@ -195,5 +199,11 @@ public class AirBubbleController : MonoBehaviour
 
         // Annetaan rahalle satunnainen voima
         rb.AddForce(randomForce, ForceMode.Impulse);
+    }
+
+    AudioClip RandomAirBubbleBurstSoundClip()
+    {
+        Debug.Log("ajetaan");
+        return AirBubbleControllerAudioClipArray[Random.Range(0, 2)];
     }
 }
