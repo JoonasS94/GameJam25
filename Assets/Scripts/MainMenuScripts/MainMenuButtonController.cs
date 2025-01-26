@@ -23,6 +23,7 @@ public class MainMenuButtonController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Application.targetFrameRate = 60;
         StartCoroutine(SwitchingCreditsTextScript());
     }
 
@@ -43,8 +44,8 @@ public class MainMenuButtonController : MonoBehaviour
             Info();
         }
 
-        // Xbox A-button
-        if (Input.GetKeyDown(KeyCode.Joystick2Button0) && InfoActive == true)
+        // Xbox B-button
+        if (Input.GetKeyDown(KeyCode.Joystick2Button1) && InfoActive == true)
         {
             InfoActive = false;
             Menu();
