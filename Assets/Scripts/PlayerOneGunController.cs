@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerOneGunController : MonoBehaviour
 {
-    public Transform weapon; // Ase, jota liikutetaan
+    public Transform PlayerOneWeapon; // Ase, jota liikutetaan
     public bool PlayerOneFiringCooldown = false;
     public GameObject PlayerOneShotBubblePrefab;
     public GameObject PlayerOneShotDartPrefab;
@@ -33,7 +33,7 @@ public class PlayerOneGunController : MonoBehaviour
             float angle = Mathf.Atan2(vertical, horizontal) * Mathf.Rad2Deg * -1 - 90;
 
             // Aseta aseen rotaatio välittömästi
-            weapon.rotation = Quaternion.Euler(0, 0, angle);
+            PlayerOneWeapon.rotation = Quaternion.Euler(0, 0, angle);
         }
 
         // Lue R2-arvo
