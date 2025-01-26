@@ -956,8 +956,8 @@ MonoBehaviour:
   InfoTextObject: {fileID: 919409727}
   MainMenuScriptAudioSource: {fileID: 764067796}
   MainMenuScriptAudioClipArray:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: aae5668897bd48949a3b1661d03b6943, type: 3}
+  - {fileID: 8300000, guid: aae5668897bd48949a3b1661d03b6943, type: 3}
   SwitchingCreditsText: {fileID: 1324234079}
 --- !u!4 &764067795
 Transform:
@@ -2679,7 +2679,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Finance Buble
+  m_text: Finance Bubble
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

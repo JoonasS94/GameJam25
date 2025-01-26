@@ -47,6 +47,7 @@ public class MainMenuButtonController : MonoBehaviour
         // Xbox B-button
         if (Input.GetKeyDown(KeyCode.Joystick2Button1) && InfoActive == true)
         {
+            MainMenuScriptAudioSource.PlayOneShot(OpenInfo());
             InfoActive = false;
             Menu();
         }
@@ -115,6 +116,8 @@ public class MainMenuButtonController : MonoBehaviour
         SwitchingCreditsText.text = "Game Pickup by IENBA (CC0)";
         yield return new WaitForSeconds(5f);
         SwitchingCreditsText.text = "Input Prompts by Kenney (CC0)";
+        yield return new WaitForSeconds(5f);
+        SwitchingCreditsText.text = "Door Handle Wood Clack.aif by RutgerMuller (CC0)";
         yield return new WaitForSeconds(5f);
         SwitchingCreditsText.text = "The Big Heist by Geoff Harvey – Pixabay (Pixabay license) ";
         StartCoroutine(SwitchingCreditsTextScript());

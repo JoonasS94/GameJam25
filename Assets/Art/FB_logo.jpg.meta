@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      FB_logo_0: 3069713967418591090
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
