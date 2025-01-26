@@ -93,6 +93,7 @@ public class PlayerOneScript : MonoBehaviour
     IEnumerator StunPlayerOne()
     {
         Debug.Log("Tikka osui ja p2 hidastettu");
+        PlayerOneScriptAudioSource.PlayOneShot(RandomHurtSoundClip());
         PlayerOnejumpForce = 1f;
         PlayerOneplayerSpeed = 1f;
         yield return new WaitForSeconds(0.3f);
@@ -111,5 +112,11 @@ public class PlayerOneScript : MonoBehaviour
     AudioClip RandomJumpSoundClip()
     {
         return PlayerOneScriptAudioClipArray[Random.Range(0, 1)];
+    }
+
+    AudioClip RandomHurtSoundClip()
+    {
+        Debug.Log("kuuluko");
+        return PlayerOneScriptAudioClipArray[Random.Range(2, 6)];
     }
 }
