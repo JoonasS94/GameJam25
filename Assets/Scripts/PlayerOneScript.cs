@@ -13,6 +13,9 @@ public class PlayerOneScript : MonoBehaviour
 
     public GameController GameControllerScript;
 
+    public AudioSource PlayerOneScriptAudioSource;
+    public AudioClip[] PlayerOneScriptAudioClipArray;
+
     void Start()
     {
         // Hae Rigidbody-komponentti
@@ -45,6 +48,7 @@ public class PlayerOneScript : MonoBehaviour
         // Lisää ylöspäin suuntautuva voima Rigidbodyyn
         rb.AddForce(Vector3.up * PlayerOnejumpForce, ForceMode.Impulse);
         Debug.Log("Hyppy kun painetaan Xbox-one ohjaimen A-nappia");
+        PlayerOneScriptAudioSource.PlayOneShot(RandomJumpSoundClip());
     }
 
     private bool IsGrounded()
@@ -102,5 +106,10 @@ public class PlayerOneScript : MonoBehaviour
             PlayerOnejumpForce = 0;
             PlayerOneplayerSpeed = 0;
         }
+    }
+
+    AudioClip RandomJumpSoundClip()
+    {
+        return PlayerOneScriptAudioClipArray[Random.Range(0, 1)];
     }
 }

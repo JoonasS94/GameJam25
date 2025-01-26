@@ -13,6 +13,9 @@ public class PlayerTwoScript : MonoBehaviour
 
     public GameController GameControllerScript;
 
+    public AudioSource PlayerTwoScriptAudioSource;
+    public AudioClip[] PlayerTwoScriptAudioClipArray;
+
     void Start()
     {
         // Hae Rigidbody-komponentti
@@ -45,6 +48,7 @@ public class PlayerTwoScript : MonoBehaviour
         // Lisää ylöspäin suuntautuva voima Rigidbodyyn
         rb.AddForce(Vector3.up * PlayerTwojumpForce, ForceMode.Impulse);
         Debug.Log("Hyppy kun painetaan 2. ohjaimen X-nappia");
+        PlayerTwoScriptAudioSource.PlayOneShot(RandomJumpSoundClip());
     }
 
     private bool IsGrounded()
@@ -102,5 +106,10 @@ public class PlayerTwoScript : MonoBehaviour
             PlayerTwojumpForce = 0;
             PlayerTwoplayerSpeed = 0;
         }
+    }
+
+    AudioClip RandomJumpSoundClip()
+    {
+        return PlayerTwoScriptAudioClipArray[Random.Range(0, 1)];
     }
 }
