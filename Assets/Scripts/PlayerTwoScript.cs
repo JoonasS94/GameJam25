@@ -80,6 +80,7 @@ public class PlayerTwoScript : MonoBehaviour
             Debug.Log("rahaa pelaajalle");
             playerTwoMoney += 1;
             playerTwoMoneyText.text = "P2 Money: " + playerTwoMoney;
+            PlayerTwoScriptAudioSource.PlayOneShot(RandomMoneySoundClip());
         }
 
         if (collision.gameObject.CompareTag("PlayerOneShotDartTag"))
@@ -117,5 +118,10 @@ public class PlayerTwoScript : MonoBehaviour
     AudioClip RandomHurtSoundClip()
     {
         return PlayerTwoScriptAudioClipArray[Random.Range(2, 6)];
+    }
+
+    AudioClip RandomMoneySoundClip()
+    {
+        return PlayerTwoScriptAudioClipArray[Random.Range(7, 9)];
     }
 }
