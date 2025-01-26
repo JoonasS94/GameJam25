@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MainMenuButtonController : MonoBehaviour
 {
@@ -14,10 +15,15 @@ public class MainMenuButtonController : MonoBehaviour
     public GameObject QuitButtonObject;
     public GameObject InfoTextObject;
 
+    public AudioSource MainMenuScriptAudioSource;
+    public AudioClip[] MainMenuScriptAudioClipArray;
+
+    public TextMeshProUGUI SwitchingCreditsText;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        StartCoroutine(SwitchingCreditsTextScript());
     }
 
     // Update is called once per frame
@@ -32,6 +38,7 @@ public class MainMenuButtonController : MonoBehaviour
         // Xbox X-button
         if (Input.GetKeyDown(KeyCode.Joystick2Button2) && InfoActive == false)
         {
+            MainMenuScriptAudioSource.PlayOneShot(OpenInfo());
             InfoActive = true;
             Info();
         }
@@ -83,5 +90,32 @@ public class MainMenuButtonController : MonoBehaviour
     {
         // Quit game
         Application.Quit();
+    }
+
+    AudioClip OpenInfo()
+    {
+        return MainMenuScriptAudioClipArray[Random.Range(0, 1)];
+    }
+
+
+    IEnumerator SwitchingCreditsTextScript()
+    {
+        yield return new WaitForSeconds(5f);
+        SwitchingCreditsText.text = "Indy Blow Darts Cue 3 by pscsound (Attribution 3.0)";
+        yield return new WaitForSeconds(5f);
+        SwitchingCreditsText.text = "Bubbles4 by kwahmah_02 (Attribution 3.0)";
+        yield return new WaitForSeconds(5f);
+        SwitchingCreditsText.text = "jump sound by tramppa34 (CC0)";
+        yield return new WaitForSeconds(5f);
+        SwitchingCreditsText.text = "03-Dolor by ZeritFreeman (CC0)";
+        yield return new WaitForSeconds(5f);
+        SwitchingCreditsText.text = "multiple bubbles bursting by florianreichelt (CC0)";
+        yield return new WaitForSeconds(5f);
+        SwitchingCreditsText.text = "Game Pickup by IENBA (CC0)";
+        yield return new WaitForSeconds(5f);
+        SwitchingCreditsText.text = "Input Prompts by Kenney (CC0)";
+        yield return new WaitForSeconds(5f);
+        SwitchingCreditsText.text = "The Big Heist by Geoff Harvey – Pixabay (Pixabay license) ";
+        StartCoroutine(SwitchingCreditsTextScript());
     }
 }

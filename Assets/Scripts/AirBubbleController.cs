@@ -203,7 +203,6 @@ public class AirBubbleController : MonoBehaviour
 
     AudioClip RandomAirBubbleBurstSoundClip()
     {
-        Debug.Log("ajetaan");
         return AirBubbleControllerAudioClipArray[Random.Range(0, 2)];
     }
 }
