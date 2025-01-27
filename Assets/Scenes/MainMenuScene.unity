@@ -452,7 +452,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 836658d18636dd14eb29fc9fb2581ef7, type: 2}
+  - {fileID: 2100000, guid: d64679603fb19b54bad3765572303d51, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1135,14 +1135,14 @@ MonoBehaviour:
 
 
     Lawyers must use left stick
-    to move sideways and if needed jump with A (Xbox one) or X (Playstation 4) button.
-    Aim your gun with right stick and shoot bubbles with RT (Xbox one) or R2 (Playstation
-    4) button. Once the flowing bubble is feed with enough cheques, it turns green
-    and can be burst open with darts that are shot using LT (Xbox one) or L2 (Playstation
-    4) button.
+    to move sideways and if needed jump with X (Playstation 4) button. Aim your gun
+    with right stick and shoot bubbles with R2 (Playstation 4) button. Once the flowing
+    bubble is feed with enough cheques, it turns green and can be burst open with
+    darts that are shot using L2 (Playstation 4) button.
 
 
-    The one with more money at the end of timer wins.'
+    The one with more
+    money at the end of timer wins.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2193,7 +2193,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 86c55570deb2ae24ab936b93c86ff7c7, type: 2}
+  - {fileID: 2100000, guid: 68c423d2dfc0cb94ea9be396d64cdab6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2518,8 +2518,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Please make sure you have 1st attached xbox one-controller and then PlayStation
-    4-controller.
+  m_text: Use 1st attached Ps4-controller in main menu.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2661,7 +2660,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 525b09cdb1254714689802557cf8d86b, type: 2}
+  - {fileID: 2100000, guid: 7bc0231516202ae489c2683b7a5b855d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3057,7 +3056,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1465bd5b1119bbc4da2f78d7eb6429dc, type: 2}
+  - {fileID: 2100000, guid: 4e009098c9bd8d34ebaa92eaad0db030, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

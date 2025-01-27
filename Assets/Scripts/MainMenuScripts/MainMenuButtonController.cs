@@ -33,32 +33,36 @@ public class MainMenuButtonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Xbox Y-button
-        if (Input.GetKeyDown(KeyCode.Joystick2Button3) && InfoActive == false)
+        // PS4 Triangle-button
+        if (Input.GetKeyDown(KeyCode.Joystick1Button3) && InfoActive == false)
         {
+            Debug.Log("Play painettu active");
             SceneManager.LoadScene(1);
         }
 
-        // Xbox X-button
-        if (Input.GetKeyDown(KeyCode.Joystick2Button2) && InfoActive == false)
+        // PS4 Square-button
+        if (Input.GetKeyDown(KeyCode.Joystick1Button0) && InfoActive == false)
         {
+            Debug.Log("Info active");
             MainMenuScriptAudioSource.PlayOneShot(OpenInfo());
             InfoActive = true;
             Info();
         }
 
-        // Xbox B-button
-        if (Input.GetKeyDown(KeyCode.Joystick2Button1) && InfoActive == true)
+        // PS4 O-button
+        if (Input.GetKeyDown(KeyCode.Joystick1Button2) && InfoActive == true)
         {
+            Debug.Log("Main back");
             MainMenuScriptAudioSource.PlayOneShot(OpenInfo());
             InfoActive = false;
             Menu();
         }
 
 
-        // Xbox A-button QUIT
-        if (Input.GetKeyDown(KeyCode.Joystick2Button0) && InfoActive == false)
+        // PS4 X-button QUIT
+        if (Input.GetKeyDown(KeyCode.Joystick1Button1) && InfoActive == false)
         {
+            Debug.Log("QUIT funktio");
             QuitGame();
         }
     }

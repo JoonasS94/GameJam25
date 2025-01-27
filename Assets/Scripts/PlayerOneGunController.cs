@@ -30,7 +30,7 @@ public class PlayerOneGunController : MonoBehaviour
         if (horizontal != 0 || vertical != 0)
         {
             // Laske haluttu kulma
-            float angle = Mathf.Atan2(vertical, horizontal) * Mathf.Rad2Deg * -1 - 90;
+            float angle = Mathf.Atan2(vertical, horizontal) * Mathf.Rad2Deg * -1;
 
             // Aseta aseen rotaatio välittömästi
             PlayerOneWeapon.rotation = Quaternion.Euler(0, 0, angle);
